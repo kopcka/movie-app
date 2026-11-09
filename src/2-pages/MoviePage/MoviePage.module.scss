@@ -1,0 +1,155 @@
+.MovieImage {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #141414;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0; 
+    background: rgba(0, 0, 0, 60%);
+    z-index: 1;
+  }
+}
+
+.MoviePageBack {
+  position: absolute;
+  z-index: 3;
+  background-color: transparent;
+  top: 40px;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255, 90%);
+  text-decoration: none;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: var(--color-hover-yellow);
+    border: none;
+    color: var(--color-dark);
+  }
+
+  & > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.aboutMovie {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  line-height: 1;
+  letter-spacing: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 29px;
+
+  &Title {
+    font-size: 4.5rem;
+  }
+  &InfoMovie {
+    display: flex;
+    flex-direction: row;
+    column-gap: 4px;
+    font-size: 14px;
+  }
+  &Count {
+    opacity: 0.4;
+    margin-right: 17px;
+  }
+  &Release {
+    font-size: 14px;
+    opacity: 0.8;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 4px;
+      height: 4px;
+      top: 5px;
+      left: -12px;
+      background-color: var(--color-white);
+      border-radius: 50%;
+    }
+  }
+
+  &Overview {
+    max-width: 1000px;
+    height: auto;
+  }
+
+  &Buttons {
+    margin-top: 11px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    column-gap: 16px;
+    font-size: 16px;
+  }
+
+
+  &ButtonTrail {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition-duration: var(--transition-duration);
+    
+    &:hover,
+    &:focus {
+      background-color: var(--color-white);
+      color: var(--color-dark);
+    }
+  }
+
+  &ButtonFilm {
+    background-color: var(--color-yellow);
+    color: var(--color-dark-gray);
+    transition-duration: var(--transition-duration);
+    border-style: none;
+    
+    &:hover,
+    &:focus {
+      background-color: var(--color-hover-yellow);
+      color: var(--color-white);
+    }
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 144px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.loading,
+.Error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

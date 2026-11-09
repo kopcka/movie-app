@@ -1,0 +1,10 @@
+:root {
+  --color-white: #fff;
+  --color-dark: #000;
+  --color-yellow: #F5C61C;
+  --color-dark-gray: #2E2E2E;
+  --color-hover-yellow: #D4A017;
+
+  --border-color: var(--color-dark-gray);
+  --transition-duration: 0.2s;
+}

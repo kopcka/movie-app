@@ -1,0 +1,16 @@
+@import url(./variables.css);
+
+@font-face {
+  font-family: 'Display';
+  src: url(../../6-shared/assets/fonts/ADLaMDisplay-Regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Display', sans-serif;
+  font-size: 1.125rem;
+  font-weight: normal;
+  color: var(--color-white);
+}

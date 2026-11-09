@@ -1,0 +1,96 @@
+
+.mainFooter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 130px;
+
+  &Buttons {
+    display: flex;
+    column-gap: 16px;
+  }
+
+  &ButtonLeft {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    background: transparent;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: translate(-30%, -50%) rotate(45deg);
+    }
+  }
+
+  &ButtonRight {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    background: transparent;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: translate(-70%, -50%) rotate(-135deg);
+    }
+  }
+
+  &Carousel {
+    display: flex;
+    flex-direction: row;
+    column-gap: 32px;
+    overflow-x: auto;
+    margin-inline: -107px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &Image {
+    border-radius: 12px;
+    width: 176px;
+    height: 234px;
+    object-fit: cover;
+    position: relative;
+    transition-duration: 0.2s;
+
+    &:not(.active) {
+      filter: brightness(0.6);
+    }
+    &:hover {
+      filter: brightness(1);
+      z-index: 2;
+    }
+  }
+
+  &Link {
+    text-decoration: none;
+    display: block;
+    flex-shrink: 0;
+  }
+}
+
+.active {
+  transform: scale(1.1);
+  transform-origin: bottom center;
+  z-index: 3;
+}

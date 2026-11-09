@@ -1,0 +1,21 @@
+.header {
+  padding-top: 40px;
+}
+
+.headerInner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+  transition-duration: var(--transition-duration);
+}
+
+.headerLogo {
+  transition-duration: var(--transition-duration);
+}
+
+.headerLogo:hover,
+.headerLogo:focus-visible {
+  transform: scale(1.02);
+}

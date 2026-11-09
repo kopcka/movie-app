@@ -1,0 +1,172 @@
+.heroWrapper {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000; // запасной цвет, пока картинка не загрузилась
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // слой с затемнением поверх картинки
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 90%) 0%, rgba(0, 0, 0, 0) 100%),
+      linear-gradient(to top, rgba(0, 0, 0, 70%) 0%, rgba(0, 0, 0, 0) 34%, rgba(0, 0, 0, 53%) 100%);
+  }
+
+  // контент лежит выше градиента
+  > div,
+  > header,
+  > main {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.mainBody {
+  margin-top: 141px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.mainHeader {
+  max-width: 470px;
+  height: auto;
+
+  &Body {
+    width: 100%;
+    line-height: 1;
+    letter-spacing: 0%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 29px;
+  }
+  &Title {
+    font-size: 4.5rem;
+  }
+  &InfoMovie {
+    display: flex;
+    font-display: row;
+    column-gap: 4px;
+    font-size: 14px;
+  }
+  &Count {
+    opacity: 0.4;
+    margin-right: 17px;
+  }
+  &Release {
+    font-size: 14px;
+    opacity: 0.8;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 4px;
+      height: 4px;
+      top: 5px;
+      left: -12px;
+      background-color: var(--color-white);
+      border-radius: 50%;
+    }
+  }
+
+  &Overview {
+    line-height: 1.6;
+    max-height: calc(1.6em * 3);  // ровно три строки
+    overflow: hidden;
+
+    // распорка: опускает кнопку на уровень третьей строки
+    &::before {
+      content: '';
+      float: right;
+      height: calc(1.6em * 2);
+    }
+
+    &Btn {
+      float: right;
+      clear: right;
+      background: transparent;
+      border: none;
+      color: var(--color-yellow);
+      font-size: 16px;
+
+      span { color: var(--color-white); } // многоточие остаётся белым
+    }
+  }
+
+  &Buttons {
+    margin-top: 11px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    column-gap: 16px;
+    font-size: 16px;
+  }
+
+  &OverviewExpanded {
+    max-height: none;
+
+    // распорка больше не нужна, иначе справа останется пустая дыра
+    &::before {
+      display: none;
+    }
+  }
+
+  &OverviewLess {
+    background: transparent;
+    border: none;
+    color: var(--color-yellow);
+    font-size: 16px;
+    padding-left: 10px;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 144px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.mainHeaderButtonTrail {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition-duration: var(--transition-duration);
+  
+  &:hover,
+  &:focus {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
+}
+
+.mainHeaderButtonFilm {
+  background-color: var(--color-yellow);
+  color: var(--color-dark-gray);
+  transition-duration: var(--transition-duration);
+  border-style: none;
+  
+  &:hover,
+  &:focus {
+    background-color: var(--color-hover-yellow);
+    color: var(--color-white);
+  }
+}
+
+.loading,
+.Error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
