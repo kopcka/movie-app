@@ -5,7 +5,7 @@ import MoviePage from "../../2-pages/MoviePage/MoviePage";
 const Router = () => {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/movie-app/">
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
         <Route path="/movie/:id" element={<MoviePage />}></Route>
